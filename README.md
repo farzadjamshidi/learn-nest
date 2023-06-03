@@ -4,3 +4,5 @@ $ nest g service auth
 
 $ nest g module users
 $ nest g service users
+
+$ npm install --save @nestjs/jwt

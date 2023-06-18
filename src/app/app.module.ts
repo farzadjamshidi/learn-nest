@@ -1,8 +1,9 @@
 import { Module } from '@nestjs/common';
 import { DummyModule } from './dummy/dummy.module';
+import { CoreModule } from './core/core.module';
 
 @Module({
-  imports: [DummyModule],
+  imports: [DummyModule, CoreModule],
   controllers: [],
   providers: [],
 })

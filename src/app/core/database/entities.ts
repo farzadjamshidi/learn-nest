@@ -1,5 +1,7 @@
 // TODO: Import Entities Here
 
-export const entities = [];
+import { Dummy } from '../../dummy/entities/dummy.entity';
+
+export const entities = [Dummy];
 
 export default entities;

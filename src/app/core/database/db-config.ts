@@ -7,13 +7,12 @@ const dbConfig: TypeOrmModuleOptions = {
   type: 'postgres',
   host: config.get('db.host'),
   port: config.get('db.port'),
-  username: config.get('db.user'),
+  username: config.get('db.username'),
   password: config.get('db.password'),
   database: config.get('db.name'),
   synchronize: false,
   migrationsRun: true,
   migrations: ['dist/migrations/**/*.js'],
-  logging: config.get('db.logging'),
 };
 
 export { dbConfig };

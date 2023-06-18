@@ -1259,6 +1259,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/convict@npm:^6.1.2":
+  version: 6.1.2
+  resolution: "@types/convict@npm:6.1.2"
+  dependencies:
+    "@types/node": "*"
+  checksum: 964b99dde85792295479c0ac63c2d00e0384bee9919c934aa445c7c364ab27b30d7535813d93be4a64f69363e4a400147bae00fef1701a20a8d8b8aab10fb3b7
+  languageName: node
+  linkType: hard
+
 "@types/cookiejar@npm:*":
   version: 2.1.2
   resolution: "@types/cookiejar@npm:2.1.2"
@@ -4848,6 +4857,7 @@ __metadata:
     "@nestjs/schematics": ^9.0.0
     "@nestjs/testing": ^9.0.0
     "@nestjs/typeorm": ^10.0.0
+    "@types/convict": ^6.1.2
     "@types/express": ^4.17.13
     "@types/jest": 28.1.4
     "@types/node": ^16.0.0

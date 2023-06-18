@@ -1,26 +1,20 @@
 // TODO: Define a config file for environment variables.
+import * as convict from 'convict';
+import * as dotenv from 'dotenv';
 
-import dotenv from 'dotenv';
-import convict from 'convict';
-
+// Load environment variables from .env file
 dotenv.config();
 
 const config = convict({
   app: {
     env: {
-      doc: 'The application environment.',
-      format: ['production', 'development', 'staging'],
+      doc: 'The application environment',
+      format: ['production', 'development', 'test'],
       default: 'development',
       env: 'NODE_ENV',
     },
-    host: {
-      doc: 'The application url',
-      format: 'url',
-      default: '127.0.0.1',
-      env: 'HOST',
-    },
     port: {
-      doc: 'The port to bind.',
+      doc: 'The port to bind',
       format: 'port',
       default: 3000,
       env: 'PORT',
@@ -28,48 +22,39 @@ const config = convict({
   },
   db: {
     host: {
-      doc: 'Database host name/IP',
-      format: 'ipaddress',
+      doc: 'Database host',
+      format: '*',
       default: 'localhost',
       env: 'DB_HOST',
     },
     port: {
-      doc: 'Database post',
-      format: Number,
+      doc: 'Database port',
+      format: 'port',
       default: 5432,
       env: 'DB_PORT',
     },
-    name: {
-      doc: 'Database name',
+    username: {
+      doc: 'Database username',
       format: String,
-      default: 'postgres',
-      env: 'DB_NAME',
-    },
-    user: {
-      doc: 'Database user',
-      format: String,
-      default: 'postgres',
-      env: 'DB_USER',
+      default: 'root',
+      env: 'DB_USERNAME',
     },
     password: {
       doc: 'Database password',
       format: String,
-      default: 'password',
-      env: 'DB_PASS',
+      default: '',
+      env: 'DB_PASSWORD',
     },
-    sync: {
-      doc: 'Database Synchronize flag',
-      format: Boolean,
-      default: true,
-      env: 'DB_SYNC',
-    },
-    logging: {
-      doc: 'Use database logging',
-      format: Boolean,
-      default: false,
-      env: 'DB_LOGGING',
+    name: {
+      doc: 'Database name',
+      format: String,
+      default: 'mydb',
+      env: 'DB_NAME',
     },
   },
 });
+
+// Validate the configuration
+config.validate({ allowed: 'strict' });
 
 export default config;
